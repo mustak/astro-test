@@ -11,7 +11,13 @@ const prodconfig = {
     trailingSlash: 'never',
 };
 
-const config = isProduction ? prodconfig : {};
+const devconfig = {
+    site: 'http://localhost:4321',
+    base: '/',
+    trailingSlash: 'never',
+};
+
+const config = isProduction ? prodconfig : devconfig;
 
 export default defineConfig(config);
 
