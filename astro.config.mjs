@@ -12,9 +12,9 @@ const prodconfig = {
 };
 
 const devconfig = {
-    site: 'http://localhost:4321',
-    base: '/',
-    trailingSlash: 'always',
+    // site: 'http://localhost:4321',
+    // base: '/',
+    // trailingSlash: 'always',
 };
 
 const config = isProduction ? prodconfig : devconfig;
