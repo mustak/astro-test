@@ -11,9 +11,9 @@
         <title>Astro</title>
     </head>
     <body>
-        <a href="/">Home</a> |
+        <a href=`${import.meta.env.BASE_URL}`>Home</a> |
         <a href=`${import.meta.env.BASE_URL}about/`>About</a> |
-        <a href="/blog">Blog</a>
+        <a href=`${import.meta.env.BASE_URL}blog/`>Blog</a>
         <h1>First Astro App</h1>
     </body>
 </html>
