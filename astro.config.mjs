@@ -8,13 +8,13 @@ const prodSite = 'https://mustak.github.com';
 const prodconfig = {
     site: prodSite,
     base: prodBase,
-    trailingSlash: 'never',
+    trailingSlash: 'always',
 };
 
 const devconfig = {
     site: 'http://localhost:4321',
     base: '/',
-    trailingSlash: 'never',
+    trailingSlash: 'always',
 };
 
 const config = isProduction ? prodconfig : devconfig;
