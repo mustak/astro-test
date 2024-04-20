@@ -10,7 +10,12 @@ const prodBase = '/astro-test';
 const prodSite = 'https://mustak.github.com';
 
 const baseConfig = {
-    integrations: [react(), tailwind(), partytown(), mdx()],
+    integrations: [
+        react(),
+        tailwind({ applyBaseStyles: false }),
+        partytown(),
+        mdx(),
+    ],
 };
 const prodconfig = {
     ...baseConfig,

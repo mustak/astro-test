@@ -1,5 +1,6 @@
 ---
-
+import '../base.css';
+const pageTitle = 'Home Page';
 ---
 
 <html lang="en">
@@ -8,12 +9,12 @@
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>Astro</title>
+        <title>{pageTitle}</title>
     </head>
     <body>
         <a href=`${import.meta.env.BASE_URL}`>Home</a> |
         <a href=`${import.meta.env.BASE_URL}about/`>About</a> |
         <a href=`${import.meta.env.BASE_URL}blog/`>Blog</a>
-        <h1>First Astro App</h1>
+        <h1>{pageTitle}</h1>
     </body>
 </html>
