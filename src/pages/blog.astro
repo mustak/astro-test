@@ -1,4 +1,8 @@
 ---
+import Header from '../components/Header.astro';
+import Heading from '../components/Heading';
+import Footer from '../components/Footer.astro';
+
 import '../base.css';
 const pageTitle = 'My Astro Learning Blog';
 ---
@@ -12,10 +16,8 @@ const pageTitle = 'My Astro Learning Blog';
         <title>{pageTitle}</title>
     </head>
     <body>
-        <a href=`${import.meta.env.BASE_URL}`>Home</a> |
-        <a href=`${import.meta.env.BASE_URL}about/`>About</a> |
-        <a href=`${import.meta.env.BASE_URL}blog/`>Blog</a>
-        <h1>{pageTitle}</h1>
+        <Header />
+        <Heading level={1}>{pageTitle}</Heading>
         <p>This is where I will post about my journey learning Astro.</p>
         <ul>
             <li>
@@ -28,5 +30,9 @@ const pageTitle = 'My Astro Learning Blog';
                 <a href=`${import.meta.env.BASE_URL}posts/post-3/`>Post 3</a>
             </li>
         </ul>
+        <Footer />
+        <script>
+            import '../scripts/menu.js';
+        </script>
     </body>
 </html>
