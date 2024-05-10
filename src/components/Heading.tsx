@@ -1,6 +1,10 @@
 import React, { type ElementType, type HTMLAttributes } from 'react';
 
-type HeadingProps = {
+
+type HtmlH = HTMLAttributes<HTMLHeadingElement>
+//<'h1' | 'h2' | 'h3' | 'h4'>;
+
+interface  HeadingProps extends HtmlH {
     level: number;
     className?: string;
     children: React.ReactNode;
@@ -12,7 +16,7 @@ const Heading = ({
     children,
     ...props
 }: HeadingProps) => {
-    const H = `h${level}` as ElementType<HTMLAttributes<HTMLHeadingElement>>
+    const H = `h${level}` as ElementType<HtmlH>
 
 
     return (
