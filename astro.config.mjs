@@ -32,6 +32,6 @@ const devconfig = {
 const config = isProduction ? prodconfig : devconfig;
 
 // https://astro.build/config
-export default defineConfig(config);
+export default defineConfig({...config});
 
 // https://github.com/mustak/astro-test
