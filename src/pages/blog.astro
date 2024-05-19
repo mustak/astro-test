@@ -1,28 +1,11 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import BlogPost from '@components/BlogPost.astro';
+import type { MarkDown } from '@Types/Markdown';
 
-interface Frontmatter {
-    title: string;
-    pubDate?: Date;
-    description: string;
-    author: string;
-    image: {
-        url: string;
-        alt: string;
-    };
-    tags: string[];
-}
-const allPosts = await Astro.glob<Frontmatter>('./posts/*.md');
+const allPosts = await Astro.glob<MarkDown>('./posts/*.md*');
 
-import '../base.css';
-import { postcss } from 'tailwindcss';
 const pageTitle = 'My Astro Learning Blog';
-//${import.meta.env.BASE_URL}
-/*
-<li>
-            <a href=`${import.meta.env.BASE_URL}posts/post-3/`>Post 3</a>
-        </li>
-*/
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -30,9 +13,7 @@ const pageTitle = 'My Astro Learning Blog';
     <ul>
         {
             allPosts.map((post) => (
-                <li>
-                    <a href={`${post.url}`}>{post.frontmatter.title}</a>
-                </li>
+                <BlogPost url={post.url} title={post.frontmatter.title} />
             ))
         }
     </ul>

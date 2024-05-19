@@ -1,0 +1,39 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BlogPost from '@components/BlogPost.astro';
+import type { MarkDown } from '@Types/Markdown';
+
+export async function getStaticPaths() {
+    const allPosts: MarkDown[] = await Astro.glob<MarkDown>('../posts/*.md*');
+
+    const allTags = allPosts.map((post) => post.frontmatter.tags).flat();
+    const uniqueTags = [...new Set(allTags)];
+    console.log(uniqueTags);
+
+    return uniqueTags.map((tag) => {
+        const filteredPosts = allPosts.filter((post) =>
+            post.frontmatter.tags.includes(tag),
+        );
+        return {
+            params: { tag },
+            props: { posts: filteredPosts },
+        };
+    });
+}
+
+interface Props {
+    posts: MarkDown[];
+}
+
+const { posts } = Astro.props;
+const { tag } = Astro.params;
+---
+
+<BaseLayout pageTitle={`Tag: ${tag}`}>
+    <p>Posts tagged with {tag}</p>
+    {
+        posts.map((post) => (
+            <BlogPost url={post.url} title={post.frontmatter.title} />
+        ))
+    }
+</BaseLayout>
