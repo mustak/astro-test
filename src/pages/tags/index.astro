@@ -1,0 +1,21 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import type { MarkDown } from '@Types/Markdown';
+
+const allPosts: MarkDown[] = await Astro.glob<MarkDown>('../posts/*.md*');
+
+const allTags = allPosts.map((post) => post.frontmatter.tags).flat();
+const uniqueTags = [...new Set(allTags)];
+---
+
+<BaseLayout pageTitle="All Tags">
+    <div class="flex gap-2 flex-wrap">
+        {
+            uniqueTags.map((tag) => (
+                <a href={tag} class=" text-nowrap">
+                    {tag}
+                </a>
+            ))
+        }
+    </div>
+</BaseLayout>
