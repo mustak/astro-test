@@ -2,11 +2,24 @@
 import { formatDate } from '@/scripts/utils';
 
 import BaseLayout from './BaseLayout.astro';
+
 const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
     <div class="mb-4">
+        <p class="flex gap-2 flex-wrap">
+            Tags: {
+                frontmatter.tags.map((tag: string) => (
+                    <a
+                        href={`${import.meta.env.BASE_URL}tags/${tag}`}
+                        class=" text-nowrap"
+                    >
+                        {tag}
+                    </a>
+                ))
+            }
+        </p>
         <p class="text-slate-900">Written by {frontmatter.author}</p>
         <p class="text-sm text-slate-800">
             Published on: {formatDate(frontmatter.pubDate)}
