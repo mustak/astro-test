@@ -16,18 +16,17 @@ const baseConfig = {
         partytown(),
         mdx(),
     ],
+    trailingSlash: 'always',
 };
 const prodconfig = {
     ...baseConfig,
     site: prodSite,
     base: prodBase,
-    trailingSlash: 'always',
 };
 const devconfig = {
     ...baseConfig,
     // site: 'http://localhost:4321',
-    // base: '/',
-    // trailingSlash: 'always',
+    base: prodBase,
 };
 const config = isProduction ? prodconfig : devconfig;
 

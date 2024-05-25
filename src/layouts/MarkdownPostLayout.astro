@@ -12,7 +12,7 @@ const { frontmatter } = Astro.props;
             Tags: {
                 frontmatter.tags.map((tag: string) => (
                     <a
-                        href={`${import.meta.env.BASE_URL}tags/${tag}`}
+                        href={`${import.meta.env.BASE_URL}tags/${tag}/`}
                         class=" text-nowrap"
                     >
                         {tag}

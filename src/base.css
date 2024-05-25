@@ -37,6 +37,10 @@
         margin-top:1.2rem
     }
 
+    p{ 
+      margin-block-end: 1rem;
+    }
+
     a{
         @apply text-teal-800 font-bold px-1 rounded underline decoration-teal-700 decoration-dotted underline-offset-4
     }

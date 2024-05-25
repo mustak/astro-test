@@ -12,7 +12,7 @@ const uniqueTags = [...new Set(allTags)];
     <div class="flex gap-2 flex-wrap">
         {
             uniqueTags.map((tag) => (
-                <a href={tag} class=" text-nowrap">
+                <a href={`${tag}/`} class=" text-nowrap">
                     {tag}
                 </a>
             ))
