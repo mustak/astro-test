@@ -7,7 +7,7 @@ import mdx from '@astrojs/mdx';
 
 const isProduction = import.meta.env.PROD;
 const prodBase = '/astro-test';
-const prodSite = 'https://mustak.github.com';
+const prodSite = 'https://mustak.github.io';
 
 const baseConfig = {
     integrations: [
@@ -25,7 +25,7 @@ const prodconfig = {
 };
 const devconfig = {
     ...baseConfig,
-    // site: 'http://localhost:4321',
+    site: 'http://localhost:4321',
     base: prodBase,
 };
 const config = isProduction ? prodconfig : devconfig;
