@@ -16,7 +16,7 @@ const pageTitle = 'My Astro Learning Blog';
         {
             allPosts.map((post) => (
                 <BlogPost
-                    url={`/posts/${post.slug}/`}
+                    url={`${import.meta.env.BASE_URL}posts/${post.slug}/`}
                     title={post.data.title}
                 />
             ))
