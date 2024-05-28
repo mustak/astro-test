@@ -22,7 +22,7 @@ const { frontmatter } = Astro.props;
         </p>
         <p>Written by {frontmatter.author}</p>
         <p>
-            Published on: {formatDate(frontmatter.pubDate)}
+            Published on: {formatDate(frontmatter.pubDate.toISOString())}
         </p>
         <p><em>{frontmatter.description}</em></p>
         <img

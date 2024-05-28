@@ -1,10 +1,10 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import type { MarkDown } from '@Types/Markdown';
 
-const allPosts: MarkDown[] = await Astro.glob<MarkDown>('../posts/*.md*');
+const allPosts = await getCollection('posts');
 
-const allTags = allPosts.map((post) => post.frontmatter.tags).flat();
+const allTags = allPosts.map((post) => post.data.tags).flat();
 const uniqueTags = [...new Set(allTags)];
 ---
 
